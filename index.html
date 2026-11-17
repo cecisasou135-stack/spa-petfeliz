@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spa PetFeliz · Hotel, creche e banho &amp; tosa em Anápolis</title>
+<meta name="description" content="Hotel, creche e banho & tosa com muito carinho. Peça seu orçamento pelo WhatsApp. Seu pet é tratado como nosso.">
+<meta name="theme-color" content="#FFF7F2">
+<link rel="icon" href="imagens/logo-petfeliz.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="app" id="app" data-tab="inicio">
+
+  <!-- Cabeçalho -->
+  <header class="topbar">
+    <button class="logo-btn" data-go="inicio" aria-label="Início"><img src="imagens/logo-petfeliz.png" alt="Spa PetFeliz"></button>
+    <nav class="topnav" aria-label="Principal">
+      <button class="nav-link" data-go="inicio" data-tab-link="inicio">Início</button>
+      <button class="nav-link" data-go="servicos" data-tab-link="servicos">Serviços</button>
+      <button class="nav-cta" data-start>Solicitar orçamento</button>
+    </nav>
+    <a class="wa-pill" data-wa-direct target="_blank" rel="noopener"><span class="dot"></span>WhatsApp</a>
+  </header>
+
+  <!-- Cabeçalho do orçamento -->
+  <div class="flowbar">
+    <div class="flowbar-inner">
+      <div class="flowbar-row">
+        <button class="close-btn" data-go="inicio" aria-label="Fechar">✕</button>
+        <div>
+          <div class="flowbar-title">Solicitar orçamento</div>
+          <div class="flowbar-sub" id="stepLabel">Etapa 1 de 5 · Serviço</div>
+        </div>
+      </div>
+      <div class="steps" id="steps"></div>
+    </div>
+  </div>
+
+  <main class="scroll" id="scroll">
+
+    <!-- ============ INÍCIO ============ -->
+    <section class="view view-inicio">
+      <div class="wrap pt16">
+        <div class="hero">
+          <div class="hero-photo"><img src="imagens/golden-pisci.jpeg" alt="Dois golden retrievers felizes na piscina do Spa PetFeliz"></div>
+          <div class="hero-copy">
+            <div class="script yellow tilt">Seu pet é tratado como nosso</div>
+            <h1>Hotel, creche e banho &amp; tosa com muito carinho.</h1>
+            <div class="hero-actions">
+              <button class="btn-white" data-start>Solicitar orçamento</button>
+              <button class="btn-outline-white" data-go="servicos">Serviços</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap pt28">
+        <div class="section-title"><svg class="paw" width="22" height="22" viewBox="0 0 24 24"><use href="#paw"/></svg><h2>Nossos serviços</h2></div>
+        <div class="dashed-list" id="svcList"></div>
+      </div>
+
+      <div class="wrap pt22">
+        <div class="taxi">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="#F4C542"><use href="#paw"/></svg>
+          <div><div class="taxi-title">Temos táxi dog!</div><div class="taxi-sub">Buscamos e levamos seu pet. É só marcar no pedido de orçamento.</div></div>
+        </div>
+      </div>
+
+      <div class="wrap-flush pt30">
+        <h2 class="h2 mx22">Nossa estrutura</h2>
+        <p class="lead mx22">Espaços pensados para o conforto e a segurança do seu pet.</p>
+        <div class="carousel">
+          <figure><img src="imagens/ambiente-pisci.jpeg" alt="Área com piscina e espaço coberto" loading="lazy"><figcaption>Piscina</figcaption></figure>
+          <figure><img src="imagens/ambiente-brincar.jpeg" alt="Área coberta para brincar" loading="lazy"><figcaption>Área coberta para brincar</figcaption></figure>
+          <figure><img src="imagens/ambiente-livre.jpeg" alt="Espaço livre com árvores e piso emborrachado" loading="lazy"><figcaption>Espaço livre</figcaption></figure>
+          <figure><img src="imagens/ambiente-aberto.jpeg" alt="Ambiente aberto com natureza e casinhas" loading="lazy"><figcaption>Ambiente aberto</figcaption></figure>
+          <figure><img src="imagens/pets-menores.jpeg" alt="Área arborizada para pets menores, com rampa de brincar" style="object-position:center 55%" loading="lazy"><figcaption>Área para pets menores</figcaption></figure>
+          <figure><img src="imagens/dormitorios.jpeg" alt="Dormitórios com caminha, potes de água e comida" loading="lazy"><figcaption>Dormitórios</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="wrap pt30">
+        <h2 class="h2 mx6">Galeria</h2>
+        <div class="gallery">
+          <img src="imagens/foto-banho.jpeg" alt="Spitz com laço depois do banho" loading="lazy">
+          <img src="imagens/collie-pisci.jpeg" alt="Dois border collies brincando na piscina" loading="lazy">
+          <img src="imagens/foto-banho2.jpeg" alt="Shih tzu com lacinhos depois da tosa" loading="lazy">
+          <img src="imagens/cachorro-bola.jpeg" alt="Labrador preto com bolinha na boca" loading="lazy">
+          <img src="imagens/akita-pisci.jpeg" alt="Cachorro branco sorrindo perto da piscina" loading="lazy">
+          <img src="imagens/foto-banho3.jpeg" alt="Shih tzu tosado com saia e laço" loading="lazy">
+          <img src="imagens/cachoro-feliz.jpeg" alt="Buldogue francês feliz" loading="lazy">
+          <img src="imagens/golden-pisci.jpeg" alt="Golden retrievers na piscina" loading="lazy">
+        </div>
+      </div>
+
+      <div class="wrap pt30">
+        <h2 class="h2 mx6">Horários e endereço</h2>
+        <div class="card info">
+          <div class="info-body">
+            <div><div class="kicker">ENDEREÇO</div><div class="info-text">Rua VB 5 — Estância Vale das Brisas<br>Anápolis · GO</div></div>
+            <div class="rule"></div>
+            <div class="hours">
+              <div class="kicker">HORÁRIOS</div>
+              <div class="hours-row"><span>Segunda a sexta</span><span class="muted">8h às 18h</span></div>
+              <div class="hours-row"><span>Sábado</span><span class="muted">9h às 14h</span></div>
+              <div class="hours-row"><span>Domingo</span><span class="muted">Fechado</span></div>
+            </div>
+            <div class="info-actions">
+              <a class="btn-line" href="https://maps.app.goo.gl/YtmfcxasR3pHiqQA6?g_st=ic" target="_blank" rel="noopener">Como chegar</a>
+              <a class="btn-pink" data-wa-direct target="_blank" rel="noopener">(62) 99576-6247</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="script white">Seu pet merece cuidado e carinho!</div>
+        <div class="footer-sub">Spa PetFeliz · Seu pet é tratado como nosso</div>
+      </footer>
+    </section>
+
+    <!-- ============ SERVIÇOS ============ -->
+    <section class="view view-servicos">
+      <div class="wrap svc-head">
+        <h1>Serviços</h1>
+        <p class="lead">Escolha o que seu pet precisa e peça um orçamento sem compromisso.</p>
+      </div>
+      <div class="wrap svc-grid" id="svcDetail"></div>
+    </section>
+
+    <!-- ============ ORÇAMENTO ============ -->
+    <section class="view view-agendar">
+      <div class="form" id="form"></div>
+      <div class="sent" id="sent" hidden>
+        <div class="check">✓</div>
+        <div class="script pink">Quase lá!</div>
+        <h1>Sua mensagem está pronta no WhatsApp</h1>
+        <p>Toque em enviar na conversa. A equipe do Spa PetFeliz responde por lá com o orçamento para <span id="petName">seu pet</span>.</p>
+        <a class="btn-pink big" id="waAgain" target="_blank" rel="noopener">Abrir WhatsApp novamente</a>
+        <button class="btn-line big" id="resetAll">Voltar ao início</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Barra de ações do orçamento -->
+  <div class="actions" id="actions">
+    <div class="err" id="err" hidden></div>
+    <div class="actions-row">
+      <button class="btn-line act" id="backBtn">Voltar</button>
+      <button class="btn-pink act grow shadow" id="nextBtn">Continuar</button>
+      <a class="btn-green act grow" id="sendBtn" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Barra de abas (celular) -->
+  <nav class="tabbar" aria-label="Abas">
+    <button class="tab" data-go="inicio" data-tab-link="inicio"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,3 2,11 5,11 5,21 19,21 19,11 22,11"/></svg><span>Início</span></button>
+    <button class="tab-fab" data-start aria-label="Solicitar orçamento"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><use href="#paw"/></svg></button>
+    <button class="tab" data-go="servicos" data-tab-link="servicos"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="3.5" rx="1.75"/><rect x="3" y="10.25" width="18" height="3.5" rx="1.75"/><rect x="3" y="16.5" width="18" height="3.5" rx="1.75"/></svg><span>Serviços</span></button>
+  </nav>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="paw" viewBox="0 0 24 24"><ellipse cx="12" cy="16" rx="5" ry="4.2"/><circle cx="5.5" cy="10" r="2.2"/><circle cx="9.5" cy="5.8" r="2.3"/><circle cx="14.5" cy="5.8" r="2.3"/><circle cx="18.5" cy="10" r="2.2"/></symbol>
+</svg>
+
+<script src="js/app.js"></script>
+</body>
+</html>

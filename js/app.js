@@ -32,7 +32,7 @@
     comportPessoas: ['Sociável', 'Tímido', 'Desconfiado', 'Pode morder'],
     comportBanho: ['Tranquilo no banho', 'Agressivo / pode morder', 'Tem medo', 'Dificuldade durante o banho', 'Medo de secador', 'Não gosta de mexer nas patas'],
     crecheOpt: ['Diária avulsa', '1x por semana', '2x por semana', '3x por semana', '4x por semana', '5x por semana'],
-    especie: ['Cão', 'Gato'], sexo: ['Macho', 'Fêmea'], castrado: ['Sim', 'Não'],
+    especie: ['Cão', 'Gato', 'Outro'], sexo: ['Macho', 'Fêmea'], castrado: ['Sim', 'Não'],
     porte: [{ label: 'Pequeno', hint: 'até 10 kg' }, { label: 'Médio', hint: '10 a 25 kg' }, { label: 'Grande', hint: '25 a 45 kg' }, { label: 'Gigante', hint: 'acima de 45 kg' }],
     vermifugado: YN3, antipulgas: YN3,
     vacinas: ['Múltipla (V8/V10)', 'Raiva', 'Gripe', 'Giárdia', 'Nenhuma / não sei'],
@@ -167,6 +167,7 @@
       return head('Sobre o seu pet', 'Quanto mais detalhes, mais certeiro o orçamento.') +
         `<label class="field"><span>Nome do pet ${R}</span>${input('pet', 'Ex.: Mel')}</label>
          <div class="group"><span class="lbl">Espécie</span>${chips('especie')}</div>
+         ${S.f.especie === 'Outro' ? `<label class="field"><span>Qual animal? ${R}</span>${input('especieOutro', 'Ex.: coelho, calopsita, hamster')}</label>` : ''}
          <div class="grid2 wide-left">
            <label class="field"><span>Raça ${R}</span>${input('raca', 'Ex.: Golden, SRD')}</label>
            <label class="field"><span>Idade ${R}</span>${input('idade', 'Ex.: 3 anos')}</label>
@@ -237,7 +238,7 @@
       if (svc.creche) { const n = vezes(), d = f.diasSemana.length; if (!d) m.push('dias da semana da creche'); else if (n && d !== n) m.push(`escolha ${n} dia${n > 1 ? 's' : ''} da semana (marcou ${d})`); } }
     if (step === 1) { if (!f.tutor) m.push('nome do tutor'); if ((f.telefone || '').replace(/\D/g, '').length < 10) m.push('WhatsApp');
       if (svc.hotel) { if (!f.emergNome) m.push('nome do contato de emergência'); if ((f.emergTel || '').replace(/\D/g, '').length < 10) m.push('telefone de emergência'); } }
-    if (step === 2) { if (!f.pet) m.push('nome do pet'); if (!f.raca) m.push('raça'); if (!f.porte) m.push('porte'); if (!f.vermifugado) m.push('vermifugação'); if (!f.vacinas.length) m.push('vacinas'); if ((svc.hotel || svc.creche) && !f.avaliacao) m.push('avaliação');
+    if (step === 2) { if (!f.pet) m.push('nome do pet'); if (f.especie === 'Outro' && !f.especieOutro) m.push('qual animal'); if (!f.raca) m.push('raça'); if (!f.porte) m.push('porte'); if (!f.vermifugado) m.push('vermifugação'); if (!f.vacinas.length) m.push('vacinas'); if ((svc.hotel || svc.creche) && !f.avaliacao) m.push('avaliação');
       if (!f.idade) m.push('idade');
       if (!f.especial) m.push('problema de saúde/necessidade especial');
       if (svc.creche) { if (!f.antipulgas) m.push('pulgas e carrapatos'); if (!f.jaCreche) m.push('se já frequentou creche'); }
@@ -263,7 +264,7 @@
     return [
       { title: 'Serviços', step: 0, rows: servs },
       { title: 'Tutor', step: 1, rows: [r('Nome', f.tutor), r('WhatsApp', f.telefone), r('Emergência', [f.emergNome, f.emergTel].filter(Boolean).join(' · '))] },
-      { title: 'Pet', step: 2, rows: [r('Nome', f.pet), r('Espécie', f.especie), r('Raça', f.raca), r('Idade', f.idade), r('Sexo', f.sexo), r('Castrado', f.castrado), r('Porte', f.porte), r('Vermifugado', f.vermifugado), r('Vacinas obrigatórias em dia', vac), r('Pulgas e carrapatos', f.antipulgas), r('Medicação', f.medicacao === 'Sim' ? `Sim: ${f.medicacaoDesc || ''}` : f.medicacao), r('Problema de saúde/necessidade especial', f.especial === 'Sim' ? `Sim: ${f.especialDesc || ''}` : f.especial), r('Comportamento no banho', svc.banho && f.comportBanho), r('Temperamento', f.temperamento), r('Alimentação', care && f.alimentacao), r('Refeições por dia', svc.hotel && f.refeicoes), r('Com outros cães', care && f.comportCaes), r('Com pessoas', care && f.comportPessoas), r('Já frequentou creche', svc.creche && f.jaCreche), r('Pertences', svc.hotel && f.pertences), r('Já fez avaliação', care && f.avaliacao)] },
+      { title: 'Pet', step: 2, rows: [r('Nome', f.pet), r('Espécie', f.especie === 'Outro' ? `Outro: ${f.especieOutro || ''}` : f.especie), r('Raça', f.raca), r('Idade', f.idade), r('Sexo', f.sexo), r('Castrado', f.castrado), r('Porte', f.porte), r('Vermifugado', f.vermifugado), r('Vacinas obrigatórias em dia', vac), r('Pulgas e carrapatos', f.antipulgas), r('Medicação', f.medicacao === 'Sim' ? `Sim: ${f.medicacaoDesc || ''}` : f.medicacao), r('Problema de saúde/necessidade especial', f.especial === 'Sim' ? `Sim: ${f.especialDesc || ''}` : f.especial), r('Comportamento no banho', svc.banho && f.comportBanho), r('Temperamento', f.temperamento), r('Alimentação', care && f.alimentacao), r('Refeições por dia', svc.hotel && f.refeicoes), r('Com outros cães', care && f.comportCaes), r('Com pessoas', care && f.comportPessoas), r('Já frequentou creche', svc.creche && f.jaCreche), r('Pertences', svc.hotel && f.pertences), r('Já fez avaliação', care && f.avaliacao)] },
       { title: 'Quando', step: 3, rows: [r('Melhor dia (banho)', svc.banho && fmt(f.data)), r('Melhor horário (banho)', svc.banho && f.horario), r('Início da creche', svc.creche && fmt(f.crecheInicio)), r('Horário da creche', svc.creche && f.crecheEntrada && `${f.crecheEntrada} às ${f.crecheSaida || '?'}`), r('Leva e traz', f.levaTraz), r('Endereço', f.levaTraz === 'Sim' && f.endereco), r('Observações', f.obs)] },
     ].map(s => ({ ...s, rows: s.rows.filter(Boolean) }));
   }
@@ -311,6 +312,7 @@
       else S.f[k] = S.f[k] === v ? undefined : v;
       setErr(''); renderFlow(true);
       if (k === 'levaTraz' && S.f.levaTraz === 'Sim') { const i = $('[data-f="endereco"]', form); if (i) i.focus(); }
+      if (k === 'especie' && S.f.especie === 'Outro') { const i = $('[data-f="especieOutro"]', form); if (i) i.focus(); }
       return;
     }
     const p = e.target.closest('[data-svc]');

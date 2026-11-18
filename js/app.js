@@ -336,5 +336,5 @@
   $('#sendBtn').addEventListener('click', () => { S.sent = true; scroll.scrollTop = 0; renderFlow(); });
   $('#resetAll').addEventListener('click', () => { S = fresh(); setErr(''); go('inicio'); });
 
-  go('inicio');
+  go(location.hash === '#servicos' ? 'servicos' : 'inicio');
 })();

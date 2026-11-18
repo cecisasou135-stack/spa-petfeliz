@@ -10,7 +10,7 @@
   --max:1132px;
 }
 *{box-sizing:border-box}
-html,body{margin:0;height:100%}
+html,body{margin:0}
 body{background:var(--cream);color:var(--brown);font-family:var(--f-body);-webkit-font-smoothing:antialiased}
 a{color:var(--pink-deep)} a:hover{color:var(--pink)}
 button,input,textarea{font-family:inherit}
@@ -21,8 +21,8 @@ img{display:block;max-width:100%}
 [hidden]{display:none!important}
 
 /* ---------- Estrutura do app ---------- */
-.app{height:100dvh;display:flex;flex-direction:column;overflow:hidden;position:relative}
-.scroll{flex:1;overflow-y:auto;overflow-x:hidden;position:relative}
+.app{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;position:relative}
+.scroll{flex:1;overflow-x:clip;position:relative;z-index:0}
 .view{display:none}
 .app[data-tab="inicio"] .view-inicio,
 .app[data-tab="servicos"] .view-servicos,
@@ -43,7 +43,7 @@ img{display:block;max-width:100%}
 .muted{color:var(--muted)}
 
 /* ---------- Cabeçalho ---------- */
-.topbar{flex:none;display:flex;align-items:center;justify-content:space-between;gap:16px;
+.topbar{flex:none;position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:10px max(20px,calc((100% - 1100px)/2));background:var(--cream);border-bottom:1px solid var(--line)}
 .logo-btn{border:0;background:transparent;padding:0;display:flex}
 .logo-btn img{height:46px;width:auto}
@@ -150,7 +150,7 @@ img{display:block;max-width:100%}
 .app[data-tab="agendar"] .topbar,.app[data-tab="agendar"] .tabbar{display:none}
 .app[data-tab="agendar"] .flowbar{display:block}
 .app[data-tab="agendar"]:not(.is-sent) .actions{display:flex}
-.flowbar{flex:none;padding:12px max(20px,calc((100% - 640px)/2)) 14px;border-bottom:1px solid var(--line);background:var(--cream)}
+.flowbar{flex:none;position:sticky;top:0;z-index:20;padding:12px max(20px,calc((100% - 640px)/2)) 14px;border-bottom:1px solid var(--line);background:var(--cream)}
 .flowbar-row{display:flex;align-items:center;gap:10px}
 .close-btn{width:44px;height:44px;border-radius:22px;border:1.5px solid var(--line);background:#fff;color:var(--brown);font:700 20px var(--f-body);flex:none}
 .flowbar-title{font:800 19px/1.1 var(--f-display)}
@@ -216,7 +216,7 @@ textarea.input{height:auto;padding:12px 15px;font-size:15px;line-height:1.4;resi
 .review-row .k{flex:none;width:112px;color:var(--muted)}
 .review-row .v{flex:1;min-width:0;font-weight:800;overflow-wrap:anywhere}
 
-.actions{flex:none;padding:10px max(16px,calc((100% - 640px)/2)) calc(26px + env(safe-area-inset-bottom));background:var(--cream);border-top:1px solid var(--line);flex-direction:column;gap:8px}
+.actions{flex:none;position:sticky;bottom:0;z-index:20;padding:10px max(16px,calc((100% - 640px)/2)) calc(26px + env(safe-area-inset-bottom));background:var(--cream);border-top:1px solid var(--line);flex-direction:column;gap:8px}
 .actions-row{display:flex;gap:10px}
 .act{height:54px;font-size:15px}
 #backBtn{flex:none;padding:0 20px}
@@ -232,7 +232,7 @@ textarea.input{height:auto;padding:12px 15px;font-size:15px;line-height:1.4;resi
 .sent .btn-pink{margin-top:10px}
 
 /* ---------- Barra de abas (celular) ---------- */
-.tabbar{flex:none;height:calc(84px + env(safe-area-inset-bottom));padding:8px 18px calc(22px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-around}
+.tabbar{flex:none;position:sticky;bottom:0;z-index:20;height:calc(84px + env(safe-area-inset-bottom));padding:8px 18px calc(22px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-around}
 .tab{width:90px;height:52px;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--muted-2)}
 .tab span{font:800 12px var(--f-body)}
 .tab.on{color:var(--pink)}

@@ -55,7 +55,7 @@
 
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
-  const app = $('#app'), scroll = $('#scroll'), form = $('#form');
+  const app = $('#app'), scroll = document.scrollingElement, form = $('#form');
   const esc = v => String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const PAW = '<svg width="%s" height="%s" viewBox="0 0 24 24"><use href="#paw"/></svg>';
   const paw = n => PAW.replace(/%s/g, n);

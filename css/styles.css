@@ -129,6 +129,7 @@ img{display:block;max-width:100%}
 /* ---------- Rodapé ---------- */
 .footer{margin-top:34px;padding:26px 24px calc(30px + env(safe-area-inset-bottom));background:var(--pink);border-radius:32px 32px 0 0;text-align:center}
 .footer-sub{font:700 13px var(--f-body);color:var(--pink-soft);margin-top:8px}
+.footer .credit{margin-top:14px;font:600 12px var(--f-body);color:rgba(255,255,255,.75)}
 
 /* ---------- Página Serviços ---------- */
 .svc-head{padding-top:24px;padding-left:22px;padding-right:22px}
